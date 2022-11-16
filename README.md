@@ -17,6 +17,8 @@
 * Jest
 
 ## Description
+REGISTER FOR A DEVELOPER ACCOUNT: https://dictionaryapi.com/register/index
+FURTHER DOCS: https://www.dictionaryapi.com/products/json
 
 ## Setup/Installation Requirements
 
