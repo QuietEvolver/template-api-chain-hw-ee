@@ -1,7 +1,7 @@
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/styles.css';
-import WordService from './word.js';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import './assets/css/styles.css';
+import WordService from './service/word.js';
 
 function getWord(word) {
   let promise = WordService.getWord(word);
