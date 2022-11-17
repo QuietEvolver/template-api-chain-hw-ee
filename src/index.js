@@ -5,6 +5,7 @@ import WordService from './word.js';
 
 function getWord(word) {
   let promise = WordService.getWord(word);
+  //let wordDef = promise[0].shortdef;
 
   promise.then(function(shortDefinitions) {
     printElements(shortDefinitions);
@@ -14,9 +15,28 @@ function getWord(word) {
 }
 
 function printElements(shortDefinitions) {
-  for (const definition of shortDefinitions) {
-  document.querySelector("#showResponse").innerText += definition + "\n";
+  const shortDef = shortDefinitions[0].shortdef;
+  for (const definition of shortDef) {
+  document.querySelector("#showResponse").innerText += definition + "\n\n";
   }
+}
+
+function getAudio(word) {
+  let promise = WordService.getWord(word);
+  promise.then(function(response) {
+    addAudio(response[0].hwi.prs[0].sound.audio);
+  }, function(error) {
+    printError(error);
+  });
+}
+
+function addAudio(sound) {
+  let audio = document.getElementById("prun");
+  let src = document.createElement("source");
+  const srcTxt = `https://media.merriam-webster.com/audio/prons/en/us/mp3/${sound[0]}/${sound}.mp3`
+  src.setAttribute("src", srcTxt);
+  src.setAttribute("type", "audio/mp3");
+  audio.replaceChildren(src);
 }
 
 function printError(error) {
@@ -29,6 +49,7 @@ function handleFormSubmission(event) {
   const word = document.getElementById("word").value;
   document.getElementById("word").value = null;
   getWord(word);
+  getAudio(word);
 }
 
 window.addEventListener("load", function() {

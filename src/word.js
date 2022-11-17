@@ -2,13 +2,13 @@ export default class WordService {
   static getWord(word) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      const url = `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.APP_KEY}`;
+      const url = `https://dictionaryapi.com/api/v3/references/collegiate/json/${word}?key=${process.env.API_KEY}`;
 
       request.addEventListener("loadend", function() {
         let response; 
         if (this.status === 200) {
           response = JSON.parse(this.responseText);
-          resolve(response[0].shortdef)
+          resolve(response)
         } else {
           response = this.responseText;
           reject(response);
