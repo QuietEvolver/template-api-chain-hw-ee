@@ -49,10 +49,6 @@ function printError(error) {
 function handleFormSubmission(event) {
   event.preventDefault();
 
-  // let src = document.createElement("source");
-  // src.removeAttribute("src");
-  // src.removeAttribute("type");
-
   document.getElementById("showResponse").innerText = "";
   const word = document.getElementById("word").value;
   document.getElementById("word").value = null;
