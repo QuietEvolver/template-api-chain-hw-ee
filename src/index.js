@@ -2,6 +2,7 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/styles.css';
 import WordService from './service/word.js';
+import GiphyService from './service/giphy-service.js';
 
 async function getWord(word) {
   const response = WordService.getWord(word);

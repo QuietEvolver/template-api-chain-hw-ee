@@ -17,8 +17,15 @@
 * Jest
 
 ## Description
-REGISTER FOR A DEVELOPER ACCOUNT: https://dictionaryapi.com/register/index
-FURTHER DOCS: https://www.dictionaryapi.com/products/json
+
+* REGISTER FOR A DEVELOPER ACCOUNT: https://dictionaryapi.com/register/index
+* FURTHER DOCS: https://www.dictionaryapi.com/products/json
+* clone this repo
+* at the root of the file folder make an .env file to hide API_KEY
+* add .env to the .gitignore file
+* in your terminal run $npm run build 
+* in your terminal run $npm run start and the website will open in your default browser 
+
 
 ## Setup/Installation Requirements
 
