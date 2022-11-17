@@ -43,7 +43,7 @@ function addAudio(sound) {
 }
 
 function printError(error) {
-  document.querySelector("#showResponse").innerText = error;
+  document.querySelector("#showResponse").innerText = `Error: ${error}`;
 }
 
 function handleFormSubmission(event) {
