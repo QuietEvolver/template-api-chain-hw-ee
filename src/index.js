@@ -3,15 +3,15 @@
 import './assets/css/styles.css';
 import WordService from './service/word.js';
 
-function getWord(word) {
-  let promise = WordService.getWord(word);
+async function getWord(word) {
+  const response = WordService.getWord(word);
   //let wordDef = promise[0].shortdef;
-
-  promise.then(function(shortDefinitions) {
+  let shortDefinitions = response.shortDefinition
+  if(shortDefinitions) {
     printElements(shortDefinitions);
-  }, function(error) {
-    printError(error);
-  });
+  }else {
+    printError(response);
+  }
 }
 
 function printElements(shortDefinitions) {
@@ -21,7 +21,7 @@ function printElements(shortDefinitions) {
   }
 }
 
-function getAudio(word) {
+async function getAudio(word) {
   let promise = WordService.getWord(word);
   promise.then(function(response) {
     addAudio(response[0].hwi.prs[0].sound.audio);
