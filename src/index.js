@@ -31,12 +31,15 @@ function getAudio(word) {
 }
 
 function addAudio(sound) {
-  let audio = document.getElementById("prun");
+  let div = document.getElementById("auDiv");
+  let audio = document.createElement("audio");
   let src = document.createElement("source");
   const srcTxt = `https://media.merriam-webster.com/audio/prons/en/us/mp3/${sound[0]}/${sound}.mp3`
   src.setAttribute("src", srcTxt);
   src.setAttribute("type", "audio/mp3");
-  audio.replaceChildren(src);
+  audio.setAttribute("controls","");
+  audio.append(src);
+  div.replaceChildren(audio);
 }
 
 function printError(error) {
@@ -46,6 +49,11 @@ function printError(error) {
 function handleFormSubmission(event) {
   event.preventDefault();
 
+  // let src = document.createElement("source");
+  // src.removeAttribute("src");
+  // src.removeAttribute("type");
+
+  document.getElementById("showResponse").innerText = "";
   const word = document.getElementById("word").value;
   document.getElementById("word").value = null;
   getWord(word);
