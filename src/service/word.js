@@ -5,7 +5,7 @@ export default class WordService {
       const jsonifiedResponse = await response.json();
       if (!response.ok) {
         const errorMessage = `${jsonifiedResponse}`; //${response.status}${response.statusText} 
-        //  let response = errorMessage;
+        // let response = errorMessage;
         // const errorMessage = `${response[0]}`           
         throw new Error(errorMessage);
       }
