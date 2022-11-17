@@ -21,8 +21,8 @@ import GiphyService from './service/giphy-service.js';
 //   }, function (error) {
 //     printError(error);
 //   });
-// }
-
+// // }
+// word[0].hwi.prs[0].mw
 function getAPIData(word) {
   WordService.getWord(word).then(function (dictResponse) {
     if (dictResponse instanceof Error) {
@@ -67,7 +67,11 @@ function printElements(shortDefinitions) {
   try {
     const shortDef = shortDefinitions[0].shortdef;
     for (const definition of shortDef) {
-      document.querySelector("#showResponse").innerText += definition + "\n\n";
+      document.querySelector("#showResponse").innerText += definition  + "\n\n";
+    }
+      let wordPro = shortDefinitions[0].hwi.prs; //[0].mw;
+    for (const pronunciation of wordPro) {
+      document.querySelector("#showResponse").innerText += pronunciation.mw + "\n"
     }
   }
   catch (error) {
