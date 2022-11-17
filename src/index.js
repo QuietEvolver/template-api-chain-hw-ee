@@ -2,17 +2,23 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/css/styles.css';
 import WordService from './service/word.js';
-import GiphyService from './service/giphy-service.js';
+// import GiphyService from './service/giphy-service.js';
 
 async function getWord(word) {
-  const response = WordService.getWord(word);
-  //let wordDef = promise[0].shortdef;
-  let shortDefinitions = response.shortDefinition
-  if(shortDefinitions) {
-    printElements(shortDefinitions);
-  }else {
-    printError(response);
-  }
+  let promise = WordService.getWord(word);
+  console.log("word: ", word);
+  // let wordDef = promise[0].shortdef;
+  promise.then(function(response) {
+    printElements(response);
+  }, function(error) {
+    printError(error);
+  });
+  // let shortDefinitions = response;
+  // if(shortDefinitions) {
+    
+  // }else {
+  //   printError(response);
+  // }
 }
 
 function printElements(shortDefinitions) {
